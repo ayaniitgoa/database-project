@@ -90,16 +90,18 @@ function CommonTables(props) {
             </div>
           ))}
       </div>
-      {csvData && (
-        <div className=' mb-5'>
-          <h5 className='text-center'>5.Download Your File</h5>
+      <div className=' mb-5'>
+        <h5 className='text-center'>5. Download Your File</h5>
+        {csvData.length !== 0 ? (
           <CSVLink filename={'data-analyzer.csv'} data={csvData} className=''>
-            <Button variant='contained' color='secondary  ' className='mt-2'>
+            <Button variant='contained' color='secondary' className='mt-2'>
               Download Your File
             </Button>
           </CSVLink>
-        </div>
-      )}
+        ) : (
+          <h6 className='text-center'> Please enter valid details. </h6>
+        )}
+      </div>
     </>
   );
 }

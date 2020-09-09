@@ -9,4 +9,6 @@ urlpatterns = [
     path('api/preprocess/mysql', views.preProcessMySQL, name='preProcessMySQL'),
     path('api/preprocess/selecttables', views.selectTables, name='selectTables'),
     path('api/preprocess/jointables', views.joinTables, name='joinTables'),
+    path('api/preprocess/choosecolumns',
+         views.chooseColumns, name='chooseColumns')
 ]

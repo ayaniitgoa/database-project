@@ -163,7 +163,7 @@ chosenTablesCol = []
 
 @api_view(['GET', 'POST'])
 def chooseColumns(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         print(tablesChosen)
         username = userInfo['username']
         host = userInfo['host']
@@ -175,7 +175,15 @@ def chooseColumns(request):
             "select * from INFORMATION_SCHEMA.COLUMNS where table_name ='{}'".format(tablesChosen[0]))
         chosenTablesCol.append({1: []})
         for i in mycursor:
-            chosenTablesCol[0][1].append(i[0])
+            # print(i)
+            chosenTablesCol[0][1].append(i[3])
+
+        mycursor.execute(
+            "select * from INFORMATION_SCHEMA.COLUMNS where table_name ='{}'".format(tablesChosen[1]))
+        chosenTablesCol.append({2: []})
+        for i in mycursor:
+            # print(i)
+            chosenTablesCol[1][2].append(i[3])
         print(chosenTablesCol)
     return Response(chosenTablesCol)
 
