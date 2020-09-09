@@ -1,0 +1,28 @@
+.selectform-input {
+  /* display: flex;
+  flex-direction: column; */
+  background: #f5f1f1e5;
+  /* width: fit-content; */
+  padding: 1rem 2rem;
+}
+
+#mysql-form-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#mysql-entire-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#csv-entire-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

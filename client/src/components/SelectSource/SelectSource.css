@@ -1,0 +1,16 @@
+#select-source-tab {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#accordian-databases {
+  width: 37vw;
+}
+
+.db-table-name {
+  border-bottom: 1px dashed black;
+  /* border-top: 1px dashed black; */
+}
