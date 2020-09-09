@@ -4,6 +4,9 @@ import Button from '@material-ui/core/Button';
 import Select from 'react-select';
 import axios from 'axios';
 import { CSVLink } from 'react-csv';
+import ChooseColumns from '../ChooseColumns/ChooseColumns';
+import { getColumnsActions } from '../../reduxSetup/actions/getColumnsAction';
+import './CommonTables.css';
 
 function CommonTables(props) {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -46,6 +49,7 @@ function CommonTables(props) {
       })
       .then((res) => {
         setCsvData(res.data);
+        props.getColumnsActions();
       })
       .catch((err) => console.error(err));
 
@@ -55,7 +59,7 @@ function CommonTables(props) {
   return (
     <>
       <div className='common-table-container mt-5 mb-5'>
-        <h5 className='text-center'>4. Select Common Tables</h5>
+        <h5 className='text-center'>4. Select Common Column(s)</h5>
         {props.commonTables.length === 0 && (
           <h6 className='text-center'>Please login and enter tables.</h6>
         )}
@@ -79,7 +83,7 @@ function CommonTables(props) {
                 />
                 <Button
                   disabled={disable}
-                  className='mt-3'
+                  className='mt-3 submit-table-button'
                   variant='contained'
                   color='primary'
                   type='submit'
@@ -90,8 +94,9 @@ function CommonTables(props) {
             </div>
           ))}
       </div>
+      <ChooseColumns />
       <div className=' mb-5'>
-        <h5 className='text-center'>5. Download Your File</h5>
+        <h5 className='text-center'>6. Download Your File</h5>
         {csvData.length !== 0 ? (
           <CSVLink filename={'data-analyzer.csv'} data={csvData} className=''>
             <Button variant='contained' color='secondary' className='mt-2'>
@@ -110,4 +115,4 @@ const mapStateToProps = (state) => ({
   commonTables: state.commonTables.commonTables,
 });
 
-export default connect(mapStateToProps, null)(CommonTables);
+export default connect(mapStateToProps, { getColumnsActions })(CommonTables);

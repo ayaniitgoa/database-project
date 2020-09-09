@@ -171,19 +171,21 @@ def chooseColumns(request):
         user_db = mysql.connector.Connect(
             host=host, user=username, password=password, database='busigence', auth_plugin='mysql_native_password')
         mycursor = user_db.cursor()
+        if chosenTablesCol:
+            chosenTablesCol.clear()
         mycursor.execute(
             "select * from INFORMATION_SCHEMA.COLUMNS where table_name ='{}'".format(tablesChosen[0]))
-        chosenTablesCol.append({1: []})
+        chosenTablesCol.append({'table': tablesChosen[0], 'columns': []})
         for i in mycursor:
             # print(i)
-            chosenTablesCol[0][1].append(i[3])
+            chosenTablesCol[0]['columns'].append(i[3])
 
         mycursor.execute(
             "select * from INFORMATION_SCHEMA.COLUMNS where table_name ='{}'".format(tablesChosen[1]))
-        chosenTablesCol.append({2: []})
+        chosenTablesCol.append({'table': tablesChosen[1], 'columns': []})
         for i in mycursor:
             # print(i)
-            chosenTablesCol[1][2].append(i[3])
+            chosenTablesCol[1]['columns'].append(i[3])
         print(chosenTablesCol)
     return Response(chosenTablesCol)
 

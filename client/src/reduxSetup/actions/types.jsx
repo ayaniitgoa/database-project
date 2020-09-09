@@ -1,3 +1,4 @@
 export const POST_MYSQL_DATA = 'POST_MYSQL_DATA';
 export const GET_MYSQL_DATABASE = 'GET_MYSQL_DATABASE';
 export const GET_COMMON_TABLES = 'GET_COMMON_TABLES';
+export const GET_TABLES = 'GET_TABLES';
