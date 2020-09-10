@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import axios from 'axios';
+import dblogo from './database-logo.png';
 
 const drawerWidth = '70vw';
 
@@ -141,7 +142,7 @@ function Navbar() {
       >
         <Toolbar>
           <Typography variant='h6' noWrap className={classes.title}>
-            DATA Analyzer
+            <img src={dblogo} alt='DB Transformer Logo' /> DB Transformer
           </Typography>
           <IconButton
             color='inherit'

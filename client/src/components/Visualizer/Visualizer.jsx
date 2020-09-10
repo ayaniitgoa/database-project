@@ -21,6 +21,7 @@ function Visualizer(props) {
 
   const [table1, setTable1] = useState('');
   const [table2, setTable2] = useState('');
+  const [disable, setDisable] = useState(true);
 
   const submitVisualizerForm = (e) => {
     axios
@@ -53,6 +54,11 @@ function Visualizer(props) {
           label='Enter Table 1'
           onChange={(e) => {
             setTable1(e.target.value);
+            if (table2 && e.target.value && table2 !== e.target.value) {
+              setDisable(false);
+            } else {
+              setDisable(true);
+            }
           }}
           variant='outlined'
         />
@@ -61,12 +67,22 @@ function Visualizer(props) {
           label='Enter Table 2'
           onChange={(e) => {
             setTable2(e.target.value);
+            if (e.target.value && table1 && table1 !== e.target.value) {
+              setDisable(false);
+            } else {
+              setDisable(true);
+            }
           }}
           variant='outlined'
         />
 
         <div className='visualizer-button'>
-          <Button type='submit' variant='contained' color='secondary'>
+          <Button
+            disabled={disable}
+            type='submit'
+            variant='contained'
+            color='secondary'
+          >
             See Common Tables
           </Button>
         </div>

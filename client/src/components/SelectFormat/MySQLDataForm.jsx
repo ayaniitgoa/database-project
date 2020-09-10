@@ -29,6 +29,7 @@ function MySQLFormData(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [host, setHost] = useState('');
+  const [database, setDatabase] = useState('');
 
   const mySQLSubmit = (e) => {
     console.log(username, password, host);
@@ -37,6 +38,7 @@ function MySQLFormData(props) {
         username: username,
         password: password,
         host: host,
+        database: database,
       })
       .then(() => {
         console.log('Mysql info sent');
@@ -78,6 +80,14 @@ function MySQLFormData(props) {
           }}
           required
           label='IP Address'
+          variant='outlined'
+        />
+        <TextField
+          onChange={(e) => {
+            setDatabase(e.target.value);
+          }}
+          required
+          label='Database'
           variant='outlined'
         />
       </div>

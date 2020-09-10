@@ -9,6 +9,7 @@ import Visualizer from './components/Visualizer/Visualizer';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import CommonTables from './components/CommonTables/CommonTables';
+import ChooseColumns from './components/ChooseColumns/ChooseColumns';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <SelectSource />
             <Visualizer />
             <CommonTables />
+            <ChooseColumns />
           </div>
         </div>
       </DndProvider>

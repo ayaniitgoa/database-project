@@ -3,15 +3,13 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Select from 'react-select';
 import axios from 'axios';
-import { CSVLink } from 'react-csv';
-import ChooseColumns from '../ChooseColumns/ChooseColumns';
+
 import { getColumnsActions } from '../../reduxSetup/actions/getColumnsAction';
 import './CommonTables.css';
 
 function CommonTables(props) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [disable, setDisable] = useState(true);
-  const [csvData, setCsvData] = useState([]);
 
   const options = [];
   props.commonTables.map((table, index) => {
@@ -48,7 +46,6 @@ function CommonTables(props) {
         options: selectedOption,
       })
       .then((res) => {
-        setCsvData(res.data);
         props.getColumnsActions();
       })
       .catch((err) => console.error(err));
@@ -70,7 +67,7 @@ function CommonTables(props) {
               are correct!
             </h6>
           ) : (
-            <div className='mb-5'>
+            <div className='mb-3'>
               <form onSubmit={commonTablesSubmit}>
                 <Select
                   closeMenuOnSelect={false}
@@ -93,19 +90,6 @@ function CommonTables(props) {
               </form>
             </div>
           ))}
-      </div>
-      <ChooseColumns />
-      <div className=' mb-5'>
-        <h5 className='text-center'>6. Download Your File</h5>
-        {csvData.length !== 0 ? (
-          <CSVLink filename={'data-analyzer.csv'} data={csvData} className=''>
-            <Button variant='contained' color='secondary' className='mt-2'>
-              Download Your File
-            </Button>
-          </CSVLink>
-        ) : (
-          <h6 className='text-center'> Please enter valid details. </h6>
-        )}
       </div>
     </>
   );
