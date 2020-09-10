@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ApiBusigenceConfig(AppConfig):
-    name = 'api_busigence'
+    name = 'api_dbTransformer'

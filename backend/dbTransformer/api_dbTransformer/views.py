@@ -1,26 +1,8 @@
 from django.shortcuts import render
-from .serializer import CustomerSerializer, OrderSerializer
-from .models import Customer, Order
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 import csv
 import mysql.connector
-
-
-@api_view(['GET'])
-def showCustomer(request):
-    if request.method == 'GET':
-        results = Customer.objects.all()
-        serialize = CustomerSerializer(results, many=True)
-        return Response(serialize.data)
-
-
-@api_view(['GET'])
-def showOrder(request):
-    if request.method == 'GET':
-        results = Order.objects.all()
-        serialize = OrderSerializer(results, many=True)
-        return Response(serialize.data)
 
 
 count = 0
