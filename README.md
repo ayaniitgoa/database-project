@@ -25,7 +25,7 @@ source env/Scripts/activate
 pip install -r requirements.txt
 ```
 
-4. Connect your MySQL database by making changes to the [settings.py](backend\dbTransformer\api_dbTransformer\serializer.py) file
+4. Connect your MySQL database by making changes to the [settings.py](/backend/dbTransformer/dbTransformer/settings.py) file
 
 5. Start backend server
 
