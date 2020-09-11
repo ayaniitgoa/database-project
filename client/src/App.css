@@ -6,7 +6,7 @@
 
 body {
   overflow-x: hidden;
-  background: #f7fffb !important;
+  /* background: #f7fffb !important; */
 }
 
 *:focus {

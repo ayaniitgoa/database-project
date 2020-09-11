@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
-import './Visualizer.css';
 import { getCommonTables } from '../../reduxSetup/actions/getCommonTablesAction';
 import { connect } from 'react-redux';
+import './EnterTables.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Visualizer(props) {
+function EnterTables(props) {
   const classes = useStyles();
 
   const [table1, setTable1] = useState('');
@@ -51,7 +51,8 @@ function Visualizer(props) {
       >
         <TextField
           required
-          label='Enter Table 1'
+          label='Enter 1st Table'
+          className='enter-table-tf'
           onChange={(e) => {
             setTable1(e.target.value);
             if (table2 && e.target.value && table2 !== e.target.value) {
@@ -64,7 +65,8 @@ function Visualizer(props) {
         />
         <TextField
           required
-          label='Enter Table 2'
+          label='Enter 2nd Table'
+          className='enter-table-tf'
           onChange={(e) => {
             setTable2(e.target.value);
             if (e.target.value && table1 && table1 !== e.target.value) {
@@ -91,4 +93,4 @@ function Visualizer(props) {
   );
 }
 
-export default connect(null, { getCommonTables })(Visualizer);
+export default connect(null, { getCommonTables })(EnterTables);

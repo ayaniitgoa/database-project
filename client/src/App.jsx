@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css';
 import { Provider } from 'react-redux';
 import store from './reduxSetup/store';
 import SelectFormat from './components/SelectFormat/SelectFormat';
 import Navbar from './components/Navbar/Navbar';
 import SelectSource from './components/SelectSource/SelectSource';
-import Visualizer from './components/Visualizer/Visualizer';
+import EnterTables from './components/EnterTables/EnterTables';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import CommonTables from './components/CommonTables/CommonTables';
 import ChooseColumns from './components/ChooseColumns/ChooseColumns';
+import './App.css';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <div className='funtionalities'>
             <SelectFormat />
             <SelectSource />
-            <Visualizer />
+            <EnterTables />
             <CommonTables />
             <ChooseColumns />
           </div>

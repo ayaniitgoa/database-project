@@ -68,11 +68,11 @@ function MySQLFormData(props) {
         />
 
         <TextField
+          variant='outlined'
           onChange={(e) => {
             setPassword(e.target.value);
           }}
           label='Password'
-          variant='outlined'
         />
         <TextField
           onChange={(e) => {

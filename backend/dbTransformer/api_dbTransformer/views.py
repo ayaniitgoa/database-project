@@ -28,7 +28,7 @@ def preProcessCSV(request):
             fileData.clear()
             for row in reader:
                 fileData.append(row)
-
+        # print(fileData)
         return Response(fileData)
 
     if request.method == 'GET':
@@ -129,7 +129,6 @@ def selectTables(request):
 
                 if commonTables:
                     commonTables.clear()
-                count = 0
                 for i in mycursor:
                     commonTables.append(
                         {"id": count, "table": i[0], "status": "True"})
@@ -255,6 +254,20 @@ def chooseColumns(request):
             'select {} from {} join {} on {}.{} = {}.{};'.format(sqlInner, tablesChosen[0], tablesChosen[1], tablesChosen[0], joinT[0], tablesChosen[1], joinT[0]))
 
         res = mycursor.fetchall()
+
+        # print(res)
+
+        a = tuple()
+        for i in colsExtract1:
+            a += (i['value'],)
+        for i in colsExtract2:
+            a += (i['value'],)
+
+        # print(a)
+
+        res.insert(0, a)
+
+        # print(res)
 
         return Response(res)
 
