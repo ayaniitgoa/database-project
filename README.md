@@ -51,7 +51,7 @@ python manage.py runserver
 
 ![3rd Section](work-sample/section3.png)
 
-![Last Section](work-sample\last-section.png)
+![Last Section](work-sample/last-section.png)
 
 ![Output](work-sample/output.png)
 
