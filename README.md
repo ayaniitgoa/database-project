@@ -43,4 +43,16 @@ cd dbTransformer
 python manage.py runserver
 ```
 
+### Work Sample:
+
+![Login](work-sample/mysqlLogin.png)
+
+![Second Section](work-sample/selectSource.png)
+
+![3rd Section](work-sample/section3.png)
+
+![Last Section](work-sample\last-section.png)
+
+![Output](work-sample/output.png)
+
 #### [MIT License](./LICENSE)

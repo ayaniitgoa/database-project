@@ -73,6 +73,7 @@ function MySQLFormData(props) {
             setPassword(e.target.value);
           }}
           label='Password'
+          type='password'
         />
         <TextField
           onChange={(e) => {
